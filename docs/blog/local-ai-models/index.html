@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Totsamuychel - AI Developer Portfolio</title>
+    <link rel="stylesheet" href="/WebPortfolio/static/css/style.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="floating-particles" id="particles"></div>
+    
+    <!-- Навигационное меню -->
+    <nav style="position: fixed; top: 20px; right: 20px; z-index: 1000; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(10px); border-radius: 15px; padding: 15px; display: flex; flex-direction: column; gap: 10px;">
+        <a href="#about" onclick="scrollToSection('about')" style="color: #667eea; text-decoration: none; padding: 8px 15px; border-radius: 8px; transition: all 0.3s ease; font-size: 0.9em; white-space: nowrap;" data-i18n="about">👋 About Me</a>
+        <a href="#skills" onclick="scrollToSection('skills')" style="color: #667eea; text-decoration: none; padding: 8px 15px; border-radius: 8px; transition: all 0.3s ease; font-size: 0.9em; white-space: nowrap;" data-i18n="skills">🛠️ Skills</a>
+        <a href="#testimonials" onclick="scrollToSection('testimonials')" style="color: #667eea; text-decoration: none; padding: 8px 15px; border-radius: 8px; transition: all 0.3s ease; font-size: 0.9em; white-space: nowrap;" data-i18n="testimonials">💬 Testimonials</a>
+        <a href="#blog" onclick="scrollToSection('blog')" style="color: #667eea; text-decoration: none; padding: 8px 15px; border-radius: 8px; transition: all 0.3s ease; font-size: 0.9em; white-space: nowrap;" data-i18n="blog">📝 Blog</a>
+        <a href="#projects" onclick="scrollToSection('projects')" style="color: #667eea; text-decoration: none; padding: 8px 15px; border-radius: 8px; transition: all 0.3s ease; font-size: 0.9em; white-space: nowrap;" data-i18n="projects">🚀 Projects</a>
+    </nav>
+    
+    <div class="container">
+        
+<div class="blog-page project-page">
+    <a href="/WebPortfolio/#blog" class="back-button">← Назад к статьям</a>
+    
+    <article class="blog-hero glass-card" style="padding: 60px 40px; margin-top: 40px;">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+            <span style="background: rgba(102, 126, 234, 0.2); padding: 5px 15px; border-radius: 15px; color: #667eea; font-size: 0.9em;">AI/ML</span>
+            <span style="color: var(--text-secondary);">15 Ноябрь 2024</span>
+        </div>
+        
+        <h2 class="text-gradient" style="font-size: 3em; margin-bottom: 30px;">окальные AI модели vs блачные: огда использовать что?</h2>
+        
+        <div class="blog-content" style="font-size: 1.2em; line-height: 1.8; color: var(--text-color);">
+            <p>олный контент статьи...</p>
+        </div>
+    </article>
+</div>
+
+    </div>
+
+    <footer>
+        <p data-i18n="footer">&copy; 2025 Totsamuychel. All projects with open source code on GitHub</p>
+    </footer>
+
+    <script src="/WebPortfolio/static/css/js/script.js"></script>
+    <script src="/WebPortfolio/static/js/translations.js"></script>
+    <script src="/WebPortfolio/static/js/language-switcher.js"></script>
+    <script src="/WebPortfolio/static/js/themes.js"></script>
+    <script src="/WebPortfolio/static/js/theme-switcher.js"></script>
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Создание звезд
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 100;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+        });
+    </script>
+</body>
+</html>

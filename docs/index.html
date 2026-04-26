@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Totsamuychel - AI Developer Portfolio</title>
+    <link rel="stylesheet" href="/WebPortfolio/static/css/style.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="floating-particles" id="particles"></div>
+    
+    <!-- Навигационное меню -->
+    <nav style="position: fixed; top: 20px; right: 20px; z-index: 1000; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(10px); border-radius: 15px; padding: 15px; display: flex; flex-direction: column; gap: 10px;">
+        <a href="#about" onclick="scrollToSection('about')" style="color: #667eea; text-decoration: none; padding: 8px 15px; border-radius: 8px; transition: all 0.3s ease; font-size: 0.9em; white-space: nowrap;" data-i18n="about">👋 About Me</a>
+        <a href="#skills" onclick="scrollToSection('skills')" style="color: #667eea; text-decoration: none; padding: 8px 15px; border-radius: 8px; transition: all 0.3s ease; font-size: 0.9em; white-space: nowrap;" data-i18n="skills">🛠️ Skills</a>
+        <a href="#testimonials" onclick="scrollToSection('testimonials')" style="color: #667eea; text-decoration: none; padding: 8px 15px; border-radius: 8px; transition: all 0.3s ease; font-size: 0.9em; white-space: nowrap;" data-i18n="testimonials">💬 Testimonials</a>
+        <a href="#blog" onclick="scrollToSection('blog')" style="color: #667eea; text-decoration: none; padding: 8px 15px; border-radius: 8px; transition: all 0.3s ease; font-size: 0.9em; white-space: nowrap;" data-i18n="blog">📝 Blog</a>
+        <a href="#projects" onclick="scrollToSection('projects')" style="color: #667eea; text-decoration: none; padding: 8px 15px; border-radius: 8px; transition: all 0.3s ease; font-size: 0.9em; white-space: nowrap;" data-i18n="projects">🚀 Projects</a>
+    </nav>
+    
+    <div class="container">
+        
+    <!-- Главная страница -->
+    <div id="home" class="page active">
+        <header>
+            <h1 data-i18n="title">Totsamuychel</h1>
+            <p class="subtitle" data-i18n="subtitle">AI & Machine Learning Developer</p>
+            <div class="social-links">
+                <a href="https://github.com/Totsamuychel" target="_blank" data-i18n="githubProfile">GitHub Profile</a>
+            </div>
+        </header>
+
+        <!-- Развернутая секция "Обо мне" -->
+        <div id="about" class="about-section glass-card" style="margin: 40px 0; padding: 50px;">
+            <h2 class="section-title" style="margin: 0 0 40px 0;" data-i18n="aboutMe">👋 About Me</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; margin-bottom: 40px;">
+                <div>
+                    <h3 class="text-gradient" style="font-size: 1.5em; margin-bottom: 20px;" data-i18n="professionalBio">🚀 Professional Biography</h3>
+                    <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8; margin-bottom: 20px;" data-i18n="bioText1">Hello! My name is Totsamuychel, and I'm a passionate developer in the field of artificial intelligence and machine learning. In recent years, I've focused on creating practical AI solutions that work locally and ensure maximum data privacy.</p>
+                    <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8; margin-bottom: 20px;" data-i18n="bioText2">My specialization includes working with local AI models, computer vision, and automating routine tasks. I create tools that help people be more productive by leveraging the power of artificial intelligence without compromising security.</p>
+                    <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8;" data-i18n="bioText3">I'm particularly inspired by the opportunity to make AI technologies accessible to everyone through open source. All my projects are publicly available on GitHub because I believe in the power of community and open innovation.</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div class="avatar-container" style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 4em; position: relative;">
+                        👨‍💻
+                    </div>
+                    <h4 style="color: #fff; margin-bottom: 15px;">Totsamuychel</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;" data-i18n="aimlDeveloper">AI/ML Developer</p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://github.com/Totsamuychel" target="_blank" class="social-btn">
+                            <span>📱</span> GitHub
+                        </a>
+                        <a href="https://linkedin.com/in/totsamuychel" target="_blank" class="social-btn">
+                            <span>💼</span> LinkedIn
+                        </a>
+                        <a href="https://t.me/totsamuychel" target="_blank" class="social-btn">
+                            <span>✈️</span> Telegram
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <h3 class="text-gradient" style="font-size: 1.5em; margin-bottom: 20px; text-align: center;" data-i18n="myMotivation">💡 My Motivation</h3>
+                <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8; text-align: center; max-width: 800px; margin: 0 auto;" data-i18n="motivationText">I believe that AI should serve people, not the other way around. My goal is to create tools that expand human capabilities while maintaining control and privacy. Every project is a step toward a smarter and safer digital future.</p>
+            </div>
+        </div>
+
+        <!-- Раздел навыков -->
+        <div id="skills" class="skills-section" style="margin: 60px 0;">
+            <h2 class="section-title" data-i18n="skillsTitle">🛠️ Skills and Technologies</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                
+                <div class="skill-category glass-card">
+                    <h3 class="text-gradient" style="font-size: 1.3em; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>
+                            💻
+                            
+                        </span> 
+                        <span class="category-name" data-category="Языки программирования">Языки программирования</span>
+                    </h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">Python</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">JavaScript</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">SQL</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">Bash</span>
+                        
+                    </div>
+                </div>
+                
+                <div class="skill-category glass-card">
+                    <h3 class="text-gradient" style="font-size: 1.3em; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>
+                            🤖
+                            
+                        </span> 
+                        <span class="category-name" data-category="ML/AI Фреймворки">ML/AI Фреймворки</span>
+                    </h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">PyTorch</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">TensorFlow</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">Scikit-learn</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">OpenCV</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">Ollama</span>
+                        
+                    </div>
+                </div>
+                
+                <div class="skill-category glass-card">
+                    <h3 class="text-gradient" style="font-size: 1.3em; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>
+                            📚
+                            
+                        </span> 
+                        <span class="category-name" data-category="Инструменты &amp; Библиотеки">Инструменты &amp; Библиотеки</span>
+                    </h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">NumPy</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">Pandas</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">FastAPI</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">Telegram API</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">FFmpeg</span>
+                        
+                    </div>
+                </div>
+                
+                <div class="skill-category glass-card">
+                    <h3 class="text-gradient" style="font-size: 1.3em; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>
+                            🗄️
+                            
+                        </span> 
+                        <span class="category-name" data-category="Базы данных">Базы данных</span>
+                    </h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">PostgreSQL</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">MongoDB</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">Redis</span>
+                        
+                    </div>
+                </div>
+                
+                <div class="skill-category glass-card">
+                    <h3 class="text-gradient" style="font-size: 1.3em; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>
+                            ⚙️
+                            
+                        </span> 
+                        <span class="category-name" data-category="DevOps/Инструменты">DevOps/Инструменты</span>
+                    </h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">Docker</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">Git</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">Linux</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">GitHub Actions</span>
+                        
+                    </div>
+                </div>
+                
+                <div class="skill-category glass-card">
+                    <h3 class="text-gradient" style="font-size: 1.3em; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span>
+                            🎯
+                            
+                        </span> 
+                        <span class="category-name" data-category="Специализации">Специализации</span>
+                    </h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">Computer Vision</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">NLP</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">LLM Fine-tuning</span>
+                        
+                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">Local AI Models</span>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Раздел рекомендаций -->
+        <div id="testimonials" class="testimonials-section" style="margin: 60px 0;">
+            <h2 class="section-title" data-i18n="recommendationsTitle">💬 Testimonials</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                
+                <div class="testimonial-card glass-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; font-size: 1.5em;">
+                            👨‍💼
+                        </div>
+                        <div>
+                            <h4 style="color: #fff; margin: 0;">лексей етров</h4>
+                            <p style="color: var(--text-secondary); margin: 0; font-size: 0.9em;">Senior ML Engineer, TechCorp</p>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-color); font-style: italic; line-height: 1.6;">
+                        "Totsamuychel демонстрирует отличное понимание современных AI технологий. го проекты с локальными моделями особенно впечатляют своей практичностью и вниманием к приватности данных."
+                    </p>
+                    <div style="position: absolute; top: 20px; right: 20px; color: var(--primary-color); font-size: 2em; opacity: 0.3;">❝</div>
+                </div>
+                
+                <div class="testimonial-card glass-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; font-size: 1.5em;">
+                            👩‍💻
+                        </div>
+                        <div>
+                            <h4 style="color: #fff; margin: 0;">ария ванова</h4>
+                            <p style="color: var(--text-secondary); margin: 0; font-size: 0.9em;">Data Scientist, AI Solutions</p>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-color); font-style: italic; line-height: 1.6;">
+                        "од Totsamuychel всегда чистый и хорошо документированный. го подход к решению задач компьютерного зрения показывает глубокое понимание предметной области."
+                    </p>
+                    <div style="position: absolute; top: 20px; right: 20px; color: var(--primary-color); font-size: 2em; opacity: 0.3;">❝</div>
+                </div>
+                
+                <div class="testimonial-card glass-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; font-size: 1.5em;">
+                            👨‍🔬
+                        </div>
+                        <div>
+                            <h4 style="color: #fff; margin: 0;">митрий озлов</h4>
+                            <p style="color: var(--text-secondary); margin: 0; font-size: 0.9em;">AI Researcher, OpenTech</p>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-color); font-style: italic; line-height: 1.6;">
+                        "печатляет способность создавать практичные AI инструменты. роект Jarvis показывает отличное понимание интеграции различных AI компонентов в единую систему."
+                    </p>
+                    <div style="position: absolute; top: 20px; right: 20px; color: var(--primary-color); font-size: 2em; opacity: 0.3;">❝</div>
+                </div>
+                
+            </div>
+        </div>
+
+        <h2 id="projects" class="section-title" data-i18n="projectsTitle">🚀 My Projects</h2>
+        <p style="text-align: center; color: var(--text-secondary); font-size: 1.1em; margin-bottom: 40px;">
+            <span data-i18n="totalProjects">Total projects:</span> <span class="project-count">3</span> | <span data-i18n="openSource">All with open source code 🚀</span>
+        </p>
+        
+        <div class="projects-grid">
+            
+            <div class="project-card" onclick="location.href='/WebPortfolio/project/jarvis/'">
+                <div class="project-header">
+                    <h3 class="project-title">Jarvis</h3>
+                    <span class="project-language">Python</span>
+                </div>
+                <p class="project-description">
+                    олосовой ассистент с возможностями речи и зрения для управления 
+                </p>
+            </div>
+            
+            <div class="project-card" onclick="location.href='/WebPortfolio/project/sorter/'">
+                <div class="project-header">
+                    <h3 class="project-title">Google Account Sorter</h3>
+                    <span class="project-language">Python</span>
+                </div>
+                <p class="project-description">
+                    втоматическая сортировка в Google Sheets с множеством Google аккаунтов
+                </p>
+            </div>
+            
+            <div class="project-card" onclick="location.href='/WebPortfolio/project/copytool/'">
+                <div class="project-header">
+                    <h3 class="project-title">CopyTool App with AI</h3>
+                    <span class="project-language">Python</span>
+                </div>
+                <p class="project-description">
+                    спользование локальной AI модели для детекции размеченного текста на экране и отправки в буфер обмена
+                </p>
+            </div>
+            
+        </div>
+    </div>
+
+    </div>
+
+    <footer>
+        <p data-i18n="footer">&copy; 2025 Totsamuychel. All projects with open source code on GitHub</p>
+    </footer>
+
+    <script src="/WebPortfolio/static/css/js/script.js"></script>
+    <script src="/WebPortfolio/static/js/translations.js"></script>
+    <script src="/WebPortfolio/static/js/language-switcher.js"></script>
+    <script src="/WebPortfolio/static/js/themes.js"></script>
+    <script src="/WebPortfolio/static/js/theme-switcher.js"></script>
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Создание звезд
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 100;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+        });
+    </script>
+</body>
+</html>
