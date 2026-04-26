@@ -8,9 +8,9 @@
         
         <!-- DESIGN-4: Hero stats bar -->
         <div class="stats-bar">
-            <span>3 Projects</span>
-            <span>Open Source</span>
-            <span>Python & AI</span>
+            <span data-i18n="totalProjectsCount">7 Projects</span>
+            <span data-i18n="openSourceStatus">Open Source</span>
+            <span data-i18n="mainStack">Python & AI</span>
         </div>
 
         <div class="social-links" style="margin-top: 40px;">
@@ -25,27 +25,23 @@
         <div style="display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; margin-bottom: 40px;">
             <div>
                 <h3 class="text-gradient" style="font-size: 1.5em; margin-bottom: 20px;" data-i18n="professionalBio">🚀 Professional Biography</h3>
-                <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8; margin-bottom: 20px;" data-i18n="bioText1">Hello! My name is Totsamuychel, and I'm a passionate developer in the field of artificial intelligence and machine learning. In recent years, I've focused on creating practical AI solutions that work locally and ensure maximum data privacy.</p>
-                <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8; margin-bottom: 20px;" data-i18n="bioText2">My specialization includes working with local AI models, computer vision, and automating routine tasks. I create tools that help people be more productive by leveraging the power of artificial intelligence without compromising security.</p>
-                <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8;" data-i18n="bioText3">I'm particularly inspired by the opportunity to make AI technologies accessible to everyone through open source. All my projects are publicly available on GitHub because I believe in the power of community and open innovation.</p>
+                <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8; margin-bottom: 20px;" data-i18n="bioText1">Hello! My name is Totsamuychel, and I'm a passionate developer in the field of artificial intelligence and machine learning.</p>
+                <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8; margin-bottom: 20px;" data-i18n="bioText2">My specialization includes working with local AI models, computer vision, and automating routine tasks.</p>
+                <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8;" data-i18n="bioText3">I'm particularly inspired by the opportunity to make AI technologies accessible to everyone through open source.</p>
             </div>
             
             <div style="text-align: center;">
                 <div class="avatar-container" style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 4em; position: relative;">
                     👨‍💻
                 </div>
-                <!-- BUG-1: Удален лишний h4 Totsamuychel -->
                 <p style="color: var(--text-secondary); margin-bottom: 20px;" data-i18n="aimlDeveloper">AI/ML Developer</p>
                 
                 <div style="display: flex; flex-direction: column; gap: 10px;">
                     <a href="https://github.com/Totsamuychel" target="_blank" class="social-btn">
                         <span>📱</span> GitHub
                     </a>
-                    <a href="https://linkedin.com/in/totsamuychel" target="_blank" class="social-btn">
+                    <a href="https://linkedin.com/in/totsamuychel" target="_blank" class="project-btn secondary">
                         <span>💼</span> LinkedIn
-                    </a>
-                    <a href="https://t.me/totsamuychel" target="_blank" class="social-btn">
-                        <span>✈️</span> Telegram
                     </a>
                 </div>
             </div>
@@ -73,7 +69,7 @@
                 </h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
                     {% for skill in skills %}
-                    <span class="skill-badge" style="padding: 8px 16px; background: rgba(0, 180, 216, 0.1); border: 1px solid var(--primary-color); border-radius: 20px; color: var(--primary-color); font-size: 0.9em;">{{ skill.name }}</span>
+                    <span class="skill-badge">{{ skill.name }}</span>
                     {% endfor %}
                 </div>
             </div>
@@ -87,12 +83,9 @@
         
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 40px;">
             {% for testimonial in testimonials %}
-            <div class="testimonial-card glass-card" style="padding: 30px; position: relative;">
+            <div class="testimonial-card glass-card">
                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                    <!-- BUG-2: Замена эмодзи на SVG-инициалы -->
-                    <div class="avatar-initials">
-                        {{ testimonial.get_initials }}
-                    </div>
+                    <div class="avatar-initials">{{ testimonial.get_initials }}</div>
                     <div>
                         <h4 style="color: #fff; margin: 0;">{{ testimonial.author }}</h4>
                         <p style="color: var(--text-secondary); margin: 0; font-size: 0.9em;">{{ testimonial.role }}</p>
@@ -118,41 +111,27 @@
             {% for project in projects %}
             <div class="project-card">
                 <div>
-                    <h3 class="project-title" style="font-size: 1.5em; color: var(--primary-color); margin-bottom: 10px;">{{ project.title }}</h3>
+                    <h3 class="project-title" data-project-title="{{ project.slug }}">{{ project.title }}</h3>
                     <div class="project-tags">
                         <span class="tag">Python</span>
                         {% if project.slug == "jarvis" %}
-                        <span class="tag">AI</span> <span class="tag">OpenCV</span> <span class="tag">Ollama</span>
+                        <span class="tag">AI</span> <span class="tag">OpenCV</span>
                         {% elif project.slug == "sorter" %}
-                        <span class="tag">API</span> <span class="tag">Automation</span> <span class="tag">Google Sheets</span>
+                        <span class="tag">API</span> <span class="tag">Sheets</span>
                         {% elif project.slug == "copytool" %}
-                        <span class="tag">OCR</span> <span class="tag">ML</span> <span class="tag">Pillow</span>
+                        <span class="tag">OCR</span> <span class="tag">AI</span>
                         {% endif %}
                     </div>
-                    <p class="project-description" style="color: var(--text-secondary); margin-bottom: 20px;">
+                    <p class="project-description" data-project-desc="{{ project.slug }}">
                         {{ project.short_description }}
                     </p>
                 </div>
                 <div style="display: flex; gap: 10px;">
-                    <a href="{% url 'project_detail' project.slug %}" class="project-btn" style="flex: 1;">Open Details</a>
-                    <a href="{{ project.github_link }}" target="_blank" class="project-btn" style="background: var(--bg-card); border: 1px solid var(--primary-color); color: var(--primary-color); flex: 0.5;">GitHub</a>
+                    <a href="{% url 'project_detail' project.slug %}" class="project-btn" data-i18n="openDetails">Open Details</a>
+                    <a href="{{ project.github_link }}" target="_blank" class="project-btn secondary" data-i18n="viewOnGithub">GitHub</a>
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
-
-    <!-- Typewriter Script -->
-    <script>
-        const text = "AI & Machine Learning Developer";
-        let i = 0;
-        function typeWriter() {
-            if (i < text.length) {
-                document.getElementById("typewriter").innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-        document.addEventListener('DOMContentLoaded', typeWriter);
-    </script>
 {% endblock %}

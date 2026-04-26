@@ -2,34 +2,36 @@
 
 {% block content %}
 <main style="max-width: 900px; margin: 40px auto; padding: 0 24px;">
-    <a href="{% url 'home' %}#projects" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">← Back to Portfolio</a>
+    <a href="{% url 'home' %}#projects" style="color: var(--primary-color); text-decoration: none; font-weight: 600;" data-i18n="backToPortfolio">← Back to Portfolio</a>
 
     <section class="project-hero" style="margin: 40px 0; text-align: center;">
-        <h1 class="text-gradient" style="font-size: 3.5em; margin-bottom: 10px;">{{ project.title }}</h1>
-        <p class="subtitle" style="font-size: 1.5em; color: var(--text-secondary);">{{ project.short_description }}</p>
+        <h1 class="text-gradient" style="font-size: 3.5em; margin-bottom: 10px;" data-project-title="{{ project.slug }}">{{ project.title }}</h1>
+        <p class="subtitle" style="font-size: 1.5em; color: var(--text-secondary);" data-project-desc="{{ project.slug }}">{{ project.short_description }}</p>
         
         <div style="display: flex; justify-content: center; gap: 12px; margin-top: 30px;">
-            <span class="skill-badge" style="padding: 8px 20px; background: rgba(0, 180, 216, 0.1); border: 1px solid var(--primary-color); border-radius: 20px; color: var(--primary-color);">Python</span>
+            <span class="skill-badge">Python</span>
             {% if project.github_link %}
-            <a href="{{ project.github_link }}" target="_blank" class="project-btn" style="margin: 0; padding: 8px 25px;">View on GitHub →</a>
+            <a href="{{ project.github_link }}" target="_blank" class="project-btn" style="margin: 0; padding: 8px 25px;">
+                <span data-i18n="viewOnGithub">View on GitHub</span> →
+            </a>
             {% endif %}
         </div>
     </section>
 
     <section class="glass-card" style="padding: 40px; margin: 30px 0;">
-        <h2 style="color: var(--primary-color); margin-bottom: 20px;">About the Project</h2>
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;" data-i18n="aboutProject">About the Project</h2>
         <p style="font-size: 1.1em; line-height: 1.8;">{{ project.full_description }}</p>
     </section>
 
     {% if project.how_it_works %}
     <section class="glass-card" style="padding: 40px; margin: 30px 0;">
-        <h2 style="color: var(--primary-color); margin-bottom: 20px;">How It Works</h2>
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;" data-i18n="howItWorks">How It Works</h2>
         <p style="font-size: 1.1em; line-height: 1.8;">{{ project.how_it_works }}</p>
     </section>
     {% endif %}
 
     <section class="glass-card" style="padding: 40px; margin: 30px 0;">
-        <h2 style="color: var(--primary-color); margin-bottom: 20px;">Technologies Used</h2>
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;" data-i18n="technologiesUsed">Technologies Used</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px;">
             {% for tech in project.technologies.all %}
             <span class="tag" style="font-size: 0.9em; padding: 6px 15px;">{{ tech.name }}</span>
@@ -47,7 +49,7 @@
 
     {% if project.features_list %}
     <section class="glass-card" style="padding: 40px; margin: 30px 0;">
-        <h2 style="color: var(--primary-color); margin-bottom: 20px;">Key Features</h2>
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;" data-i18n="keyFeatures">Key Features</h2>
         <ul style="list-style: none; padding: 0;">
             {% for feature in project.get_features %}
             <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
@@ -60,7 +62,7 @@
 
     {% if project.code_snippet %}
     <section class="glass-card" style="padding: 40px; margin: 30px 0;">
-        <h2 style="color: var(--primary-color); margin-bottom: 20px;">Code Implementation</h2>
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;" data-i18n="codeImplementation">Code Implementation</h2>
         <pre style="background: #050810; padding: 20px; border-radius: 10px; overflow-x: auto; border: 1px solid var(--border-color); color: #48cae4; font-family: 'Consolas', monospace;"><code>{{ project.code_snippet }}</code></pre>
     </section>
     {% endif %}

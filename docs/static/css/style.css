@@ -10,68 +10,98 @@
   --bg-gradient: linear-gradient(135deg, #0a0e1a, #001219, #00212e);
   --card-bg: var(--bg-card);
   --card-border: var(--border-color);
-  --nav-bg: rgba(10, 14, 26, 0.9);
+  --nav-bg: rgba(10, 14, 26, 0.85);
+  --glow-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Segoe UI', Inter, system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
     background: var(--bg-gradient);
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
-    transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background 0.6s ease, color 0.6s ease;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 20px 20px;
+    padding: 80px 20px 40px;
 }
 
 /* Навигация DESIGN-3 */
 nav {
   position: fixed; top: 0; left: 0; right: 0;
   display: flex; justify-content: space-between; align-items: center;
-  padding: 0 40px; height: 64px;
-  background: var(--nav-bg); backdrop-filter: blur(12px);
+  padding: 0 60px; height: 70px;
+  background: var(--nav-bg); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   border-bottom: 1px solid var(--border-color);
-  z-index: 1000; flex-direction: row; gap: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+nav.scrolled {
+    height: 60px;
+    background: rgba(10, 14, 26, 0.95);
 }
 
 .nav-logo { 
     color: var(--primary-color); 
-    font-weight: 700; 
-    font-size: 1.5em; 
+    font-weight: 800; 
+    font-size: 1.8em; 
     text-decoration: none;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-shadow: var(--glow-shadow);
+    transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+    transform: scale(1.1);
 }
 
 .nav-links { 
     display: flex; 
-    gap: 20px; 
-    flex-direction: row !important; 
-    background: none !important; 
-    border-radius: 0 !important; 
-    position: static !important;
+    gap: 30px; 
+    align-items: center;
 }
 
-nav a {
+nav a.nav-link {
     color: var(--text-color);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     font-size: 0.95em;
+    position: relative;
+    padding: 5px 0;
 }
 
-nav a:hover {
-    color: var(--primary-color) !important;
-    transform: none !important;
+nav a.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+    box-shadow: var(--glow-shadow);
+}
+
+nav a.nav-link:hover {
+    color: var(--primary-color);
+}
+
+nav a.nav-link:hover::after {
+    width: 100%;
 }
 
 /* Hero Секция DESIGN-4 */
@@ -83,132 +113,253 @@ header {
     align-items: center;
     text-align: center;
     padding: 20px;
+    position: relative;
 }
 
 h1 {
-    font-size: 4.5em;
-    font-weight: 800;
+    font-size: clamp(3em, 8vw, 5.5em);
+    font-weight: 900;
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    letter-spacing: -2px;
+    animation: fadeInDown 1s ease-out;
 }
 
 .subtitle {
-    font-size: 1.8em;
+    font-size: clamp(1.2em, 4vw, 1.8em);
     color: var(--text-secondary);
     margin-bottom: 30px;
+    height: 1.5em; /* Prevent layout shift during typewriter */
+    animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 .stats-bar {
     display: flex;
-    gap: 30px;
-    margin-top: 40px;
-    padding: 15px 40px;
+    gap: 40px;
+    margin-top: 50px;
+    padding: 20px 50px;
     background: var(--bg-card);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--border-color);
-    border-radius: 50px;
+    border-radius: 100px;
     font-weight: 600;
     color: var(--primary-color);
+    animation: zoomIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s both;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.stats-bar span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* Карточки проектов DESIGN-2 */
+.section-title {
+    font-size: 2.5em;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 15px auto;
+    border-radius: 2px;
+    box-shadow: var(--glow-shadow);
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
+    gap: 40px;
 }
 
 .project-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 30px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 24px;
+    padding: 40px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(0, 180, 216, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 180, 216, 0.15);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 180, 216, 0.15);
     border-color: var(--primary-color);
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
 }
 
 .project-tags {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     flex-wrap: wrap;
-    margin: 15px 0;
+    margin: 20px 0;
 }
 
 .tag {
-    font-size: 0.75em;
-    padding: 4px 12px;
-    background: rgba(0, 180, 216, 0.1);
-    color: var(--primary-color);
-    border-radius: 12px;
-    border: 1px solid rgba(0, 180, 216, 0.2);
+    font-size: 0.8em;
+    padding: 6px 16px;
+    background: rgba(0, 180, 216, 0.08);
+    color: var(--accent-color);
+    border-radius: 100px;
+    border: 1px solid rgba(0, 180, 216, 0.15);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .tag {
+    background: rgba(0, 180, 216, 0.15);
+    border-color: var(--primary-color);
 }
 
 .project-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: var(--primary-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: #fff;
     text-decoration: none;
-    border-radius: 10px;
-    font-weight: 600;
-    text-align: center;
-    transition: background 0.3s ease;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.project-btn.secondary {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
 }
 
 .project-btn:hover {
-    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 180, 216, 0.3);
 }
 
 /* Инициалы в отзывах BUG-2 */
+.testimonial-card {
+    padding: 40px;
+    border-radius: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    transition: all 0.4s ease;
+}
+
+.testimonial-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
 .avatar-initials {
   width: 60px; height: 60px; border-radius: 50%;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.2em; font-weight: 700; color: #fff; letter-spacing: 0.05em;
+  font-size: 1.3em; font-weight: 800; color: #fff; 
+  letter-spacing: 1px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Универсальные классы */
-.glass-card {
-    background: var(--bg-card);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
+/* Анимации появления при скролле */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
 }
 
-.text-gradient {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Анимации */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Фон со звездами */
+.stars {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -2; pointer-events: none;
+}
+
+.star {
+    position: absolute; width: 2px; height: 2px; background: #fff; border-radius: 50%;
+    animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
 }
 
 /* Мобильная адаптация QA-3 */
 @media (max-width: 768px) {
-    nav { padding: 0 16px; }
-    .nav-logo { font-size: 1.2em; }
-    .nav-links { gap: 10px; }
-    nav a span { display: none; }
+    nav { padding: 0 20px; }
+    .nav-logo { font-size: 1.4em; }
+    .nav-links { gap: 15px; }
+    nav a.nav-link span { display: none; }
     
-    h1 { font-size: 3em; }
-    .subtitle { font-size: 1.3em; }
-    
-    .container { padding-top: 80px; }
-    .about-section > div { grid-template-columns: 1fr !important; }
-    .projects-grid { grid-template-columns: 1fr !important; }
-    
+    .container { padding-top: 100px; }
     .stats-bar { 
         flex-direction: column; 
-        gap: 10px; 
-        border-radius: 20px;
-        padding: 20px;
+        gap: 15px; 
+        border-radius: 24px;
+        padding: 25px;
+        width: 100%;
     }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2.8em; }
+    .subtitle { font-size: 1.1em; }
+    .projects-grid { grid-template-columns: 1fr; }
 }

@@ -1,4 +1,3 @@
-// Переводы для сайта
 const translations = {
     uk: {
         // Навігація
@@ -11,7 +10,7 @@ const translations = {
         // Заголовок
         title: "Totsamuychel",
         subtitle: "AI & Machine Learning Developer",
-        githubProfile: "GitHub Profile",
+        githubProfile: "GitHub Профіль",
         
         // Про мене
         aboutMe: "👋 Про мене",
@@ -21,16 +20,10 @@ const translations = {
         bioText3: "Особливо мене надихає можливість зробити AI технології доступними кожному через відкритий вихідний код. Усі мої проекти публічно доступні на GitHub, тому що я вірю в силу спільноти та відкритих інновацій.",
         myMotivation: "💡 Моя мотивація",
         motivationText: "Я вірю, що AI повинен служити людям, а не навпаки. Моя мета — створювати інструменти, які розширюють людські можливості, зберігаючи при цьому контроль і приватність. Кожен проект — це крок до більш розумного та безпечного цифрового майбутнього.",
-        aimlDeveloper: "AI/ML Developer",
+        aimlDeveloper: "AI/ML Розробник",
         
         // Навички
         skillsTitle: "🛠️ Навички та технології",
-        programmingLanguages: "💻 Мови програмування",
-        mlFrameworks: "🤖 ML/AI Фреймворки",
-        toolsLibraries: "📚 Інструменти & Бібліотеки",
-        databases: "🗄️ Бази даних",
-        devopsTools: "⚙️ DevOps/Інструменти",
-        specializations: "🎯 Спеціалізації",
         LANG: "💻 Мови програмування",
         FRAMEWORK: "🤖 ML/AI Фреймворки",
         TOOL: "📚 Інструменти & Бібліотеки",
@@ -46,28 +39,45 @@ const translations = {
         minRead: "хв читання",
         readMore: "Читати →",
         
-        // Проекти
+        // Проекты
         projectsTitle: "🚀 Мої Проекти",
         totalProjects: "Всього проектів:",
-        openSource: "Все з відкритим вихідним кодом 🚀",
+        totalProjectsCount: "7 Проектів",
+        openSourceStatus: "Відкритий код",
+        mainStack: "Python & AI",
+        openSource: "Все з відкритим кодом 🚀",
         backToProjects: "← Назад до проектів",
+        openDetails: "Детальніше",
+        viewOnGithub: "GitHub",
+
+        // Названия и описания проектов
+        project_jarvis_title: "Jarvis — Локальний AI асистент",
+        project_jarvis_desc: "Голосовий асистент з STT, Computer Vision та управлінням ПК. Працює локально.",
+        project_sorter_title: "Google Account Sorter",
+        project_sorter_desc: "Автоматичне сортування даних у Google Sheets з підтримкою багатьох акаунтів.",
+        project_copytool_title: "CopyTool — AI Text Detector",
+        project_copytool_desc: "Використання локальної AI-моделі для детекції тексту на екрані та копіювання.",
+        project_chatbot_title: "Local Chatbot AI",
+        project_chatbot_desc: "Локальний Telegram бот з підтримкою LLM та Vision моделей на базі RTX 3090.",
+        project_first_ai_title: "First AI Model",
+        project_first_ai_desc: "Проект зі створення нейромережі для класифікації рукописних цифр.",
+        project_water_title: "Water Tracker",
+        project_water_desc: "Додаток для контролю споживання води. Мій перший досвід з Git.",
+        project_tg_bot_title: "AI Bot for Telegram Channels",
+        project_tg_bot_desc: "Автоматичний парсер новин з генерацією контенту через Ollama.",
         
-        // Деталі проекта
-        demonstration: "🚀 Демонстрація",
-        projectDescription: "🎯 Опис проекта",
-        performance: "⚡ Продуктивність",
-        accuracy: "🎯 Точність",
-        security: "🔒 Безпека",
-        technologies: "🛠️ Технології",
-        localProcessing: "Локальна обробка даних без відправки в хмару",
-        modernStack: "Сучасний стек технологій для максимальної ефективності",
-        projectCode: "💻 Код проекта",
-        viewOnGithub: "📱 Подивитися на GitHub",
-        wantToSeeCode: "Хочете побачити повний код? Усі проекти з відкритим вихідним кодом!",
-        openRepository: "🔗 Відкрити репозиторій",
+        // Детали проекта
+        projectHeroTitle: "Про проект",
+        aboutProject: "Про проект",
+        howItWorks: "Як це працює",
+        technologiesUsed: "Використані технології",
+        keyFeatures: "Ключові особливості",
+        codeImplementation: "Реалізація коду",
+        backToPortfolio: "← Назад до портфоліо",
         
         // Футер
-        footer: "© 2025 Totsamuychel. Усі проекти з відкритим вихідним кодом на GitHub",
+        footer: "© 2025 Totsamuychel. Усі проекти з відкритим кодом на GitHub",
+        footerText: "Створено з пристрастю до AI та автоматизації.",
         
         // Модальне вікно
         selectLanguage: "Виберіть мову",
@@ -76,7 +86,7 @@ const translations = {
     },
     en: {
         // Navigation
-        about: "👋 About Me",
+        about: "👋 About",
         skills: "🛠️ Skills",
         testimonials: "💬 Testimonials",
         blog: "📝 Blog",
@@ -90,21 +100,15 @@ const translations = {
         // About Me
         aboutMe: "👋 About Me",
         professionalBio: "🚀 Professional Biography",
-        bioText1: "Hello! My name is Totsamuychel, and I'm a passionate developer in the field of artificial intelligence and machine learning. In recent years, I've focused on creating practical AI solutions that work locally and ensure maximum data privacy.",
-        bioText2: "My specialization includes working with local AI models, computer vision, and automating routine tasks. I create tools that help people be more productive by leveraging the power of artificial intelligence without compromising security.",
-        bioText3: "I'm particularly inspired by the opportunity to make AI technologies accessible to everyone through open source. All my projects are publicly available on GitHub because I believe in the power of community and open innovation.",
+        bioText1: "Hello! My name is Totsamuychel, and I'm a passionate developer in the field of artificial intelligence and machine learning.",
+        bioText2: "My specialization includes working with local AI models, computer vision, and automating routine tasks.",
+        bioText3: "I'm particularly inspired by the opportunity to make AI technologies accessible to everyone through open source.",
         myMotivation: "💡 My Motivation",
         motivationText: "I believe that AI should serve people, not the other way around. My goal is to create tools that expand human capabilities while maintaining control and privacy. Every project is a step toward a smarter and safer digital future.",
         aimlDeveloper: "AI/ML Developer",
         
         // Skills
         skillsTitle: "🛠️ Skills and Technologies",
-        programmingLanguages: "💻 Programming Languages",
-        mlFrameworks: "🤖 ML/AI Frameworks",
-        toolsLibraries: "📚 Tools & Libraries",
-        databases: "🗄️ Databases",
-        devopsTools: "⚙️ DevOps/Tools",
-        specializations: "🎯 Specializations",
         LANG: "💻 Programming Languages",
         FRAMEWORK: "🤖 ML/AI Frameworks",
         TOOL: "📚 Tools & Libraries",
@@ -123,45 +127,59 @@ const translations = {
         // Projects
         projectsTitle: "🚀 My Projects",
         totalProjects: "Total projects:",
+        totalProjectsCount: "7 Projects",
+        openSourceStatus: "Open Source",
+        mainStack: "Python & AI",
         openSource: "All with open source code 🚀",
         backToProjects: "← Back to projects",
+        openDetails: "Open Details",
+        viewOnGithub: "GitHub",
+
+        // Project Titles and Descriptions
+        project_jarvis_title: "Jarvis — Local AI Voice Assistant",
+        project_jarvis_desc: "Voice assistant with STT, Computer Vision, and PC control. Runs locally.",
+        project_sorter_title: "Google Account Sorter",
+        project_sorter_desc: "Automated data sorting in Google Sheets with multi-account support.",
+        project_copytool_title: "CopyTool — AI Text Detector",
+        project_copytool_desc: "Local AI model for screen text detection and clipboard integration.",
+        project_chatbot_title: "Local Chatbot AI",
+        project_chatbot_desc: "Local Telegram bot with LLM and Vision models powered by RTX 3090.",
+        project_first_ai_title: "First AI Model",
+        project_first_ai_desc: "Neural network for handwritten digit classification (MNIST).",
+        project_water_title: "Water Tracker",
+        project_water_desc: "Simple habit tracking app. My first project using Git.",
+        project_tg_bot_title: "AI Bot for Telegram Channels",
+        project_tg_bot_desc: "Automatic news parser and content generator using Ollama.",
         
         // Project Details
-        demonstration: "🚀 Demonstration",
-        projectDescription: "🎯 Project Description",
-        performance: "⚡ Performance",
-        accuracy: "🎯 Accuracy",
-        security: "🔒 Security",
-        technologies: "🛠️ Technologies",
-        localProcessing: "Local data processing without sending to the cloud",
-        modernStack: "Modern technology stack for maximum efficiency",
-        projectCode: "💻 Project Code",
-        viewOnGithub: "📱 View on GitHub",
-        wantToSeeCode: "Want to see the full code? All projects are open source!",
-        openRepository: "🔗 Open Repository",
+        projectHeroTitle: "Project Details",
+        aboutProject: "About the Project",
+        howItWorks: "How It Works",
+        technologiesUsed: "Technologies Used",
+        keyFeatures: "Key Features",
+        codeImplementation: "Code Implementation",
+        backToPortfolio: "← Back to Portfolio",
         
         // Footer
         footer: "© 2025 Totsamuychel. All projects with open source code on GitHub",
+        footerText: "Created with passion for AI & Automation.",
         
         // Modal
         selectLanguage: "Select Language",
         english: "English",
-        ukrainian: "Українська",
+        ukrainian: "Ukrainian",
     }
 };
 
-// Функция для получения перевода
 function t(key, lang = 'en') {
     return translations[lang]?.[key] || key;
 }
 
-// Функция для установки языка
 function setLanguage(lang) {
     localStorage.setItem('language', lang);
     location.reload();
 }
 
-// Функция для получения текущего языка
 function getCurrentLanguage() {
     return localStorage.getItem('language') || 'en';
 }
