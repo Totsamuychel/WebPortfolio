@@ -74,6 +74,10 @@ const translations = {
         keyFeatures: "Ключові особливості",
         codeImplementation: "Реалізація коду",
         backToPortfolio: "← Назад до портфоліо",
+        interactiveDemo: "Інтерактивне демо: Намалюйте цифру",
+        demoDesc: "Намалюйте цифру від 0 до 9 у вікні нижче, щоб побачити, як нейронна мережа її класифікує.",
+        clear: "Очистити",
+        predict: "Класифікувати",
         
         // Футер
         footer: "© 2025 Totsamuychel. Усі проекти з відкритим кодом на GitHub",
@@ -159,6 +163,10 @@ const translations = {
         keyFeatures: "Key Features",
         codeImplementation: "Code Implementation",
         backToPortfolio: "← Back to Portfolio",
+        interactiveDemo: "Interactive Demo: Draw a Digit",
+        demoDesc: "Draw a digit from 0 to 9 in the box below to see how a neural network might classify it.",
+        clear: "Clear",
+        predict: "Classify",
         
         // Footer
         footer: "© 2025 Totsamuychel. All projects with open source code on GitHub",

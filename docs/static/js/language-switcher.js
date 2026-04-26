@@ -63,18 +63,32 @@ function applyLanguage(lang) {
         }
     });
 
+    const categoryIcons = {
+        "Языки программирования": "💻",
+        "ML/AI Фреймворки": "🤖",
+        "Инструменты & Библиотеки": "📚",
+        "Базы данных": "🗄️",
+        "DevOps/Инструменты": "⚙️",
+        "Специализации": "🎯"
+    };
+
+    const keyMap = {
+        "Языки программирования": "LANG",
+        "ML/AI Фреймворки": "FRAMEWORK",
+        "Инструменты & Библиотеки": "TOOL",
+        "Базы данных": "DB",
+        "DevOps/Инструменты": "DEVOPS",
+        "Специализации": "SPEC"
+    };
+
     document.querySelectorAll('.category-name').forEach(el => {
         const cat = el.dataset.category;
-        const keyMap = {
-            "Языки программирования": "LANG",
-            "ML/AI Фреймворки": "FRAMEWORK",
-            "Инструменты & Библиотеки": "TOOL",
-            "Базы данных": "DB",
-            "DevOps/Инструменты": "DEVOPS",
-            "Специализации": "SPEC"
-        };
-        const key = keyMap[cat] || cat;
-        el.textContent = t(key, lang);
+        el.textContent = t(keyMap[cat] || cat, lang);
+    });
+
+    document.querySelectorAll('.category-icon').forEach(el => {
+        const cat = el.dataset.categoryIcon;
+        el.textContent = categoryIcons[cat] || "🔧";
     });
 
     // Перевод названий проектов
@@ -112,6 +126,21 @@ function addLanguageSwitcher() {
     document.body.appendChild(btn);
 }
 
+function initLottieAnimations() {
+    if (typeof lottie === 'undefined') return;
+    
+    const containers = document.querySelectorAll('.lottie-skill-icon');
+    containers.forEach(container => {
+        lottie.loadAnimation({
+            container: container,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://lottie.host/79051874-98c4-42b7-8a6a-2d447d6323f4/M7jVfG4V6Z.json' // Neural network animation
+        });
+    });
+}
+
 function initScrollEffects() {
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
@@ -130,8 +159,10 @@ function initScrollEffects() {
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('section, .glass-card, .project-card').forEach(el => {
+    document.querySelectorAll('section, .glass-card, .project-card, .skill-category').forEach(el => {
         el.classList.add('reveal');
         observer.observe(el);
     });
+
+    initLottieAnimations();
 }

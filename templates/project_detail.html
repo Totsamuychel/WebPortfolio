@@ -60,6 +60,80 @@
     </section>
     {% endif %}
 
+    {% if project.slug == "first-ai-model" %}
+    <section class="glass-card reveal" style="padding: 40px; margin: 30px 0;">
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;" data-i18n="interactiveDemo">Interactive Demo: Draw a Digit</h2>
+        <p style="margin-bottom: 20px;" data-i18n="demoDesc">Draw a digit from 0 to 9 in the box below to see how a neural network might classify it.</p>
+        
+        <div class="demo-container">
+            <canvas id="demo-canvas" width="280" height="280"></canvas>
+            <div style="display: flex; gap: 15px;">
+                <button class="project-btn" id="clear-canvas" data-i18n="clear">Clear</button>
+                <button class="project-btn secondary" id="predict-digit" data-i18n="predict">Classify</button>
+            </div>
+            <div id="prediction-result" style="font-size: 1.5em; font-weight: 800; color: var(--primary-color); min-height: 1.5em;"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const canvas = document.getElementById('demo-canvas');
+                if (!canvas) return;
+                const ctx = canvas.getContext('2d');
+                const clearBtn = document.getElementById('clear-canvas');
+                const predictBtn = document.getElementById('predict-digit');
+                const result = document.getElementById('prediction-result');
+                
+                let drawing = false;
+                ctx.strokeStyle = "white";
+                ctx.lineWidth = 20;
+                ctx.lineJoin = "round";
+                ctx.lineCap = "round";
+
+                function startDrawing(e) {
+                    drawing = true;
+                    draw(e);
+                }
+
+                function stopDrawing() {
+                    drawing = false;
+                    ctx.beginPath();
+                }
+
+                function draw(e) {
+                    if (!drawing) return;
+                    const rect = canvas.getBoundingClientRect();
+                    const x = (e.clientX || e.touches[0].clientX) - rect.left;
+                    const y = (e.clientY || e.touches[0].clientY) - rect.top;
+                    
+                    ctx.lineTo(x, y);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(x, y);
+                }
+
+                canvas.addEventListener('mousedown', startDrawing);
+                canvas.addEventListener('mousemove', draw);
+                canvas.addEventListener('mouseup', stopDrawing);
+                canvas.addEventListener('touchstart', startDrawing);
+                canvas.addEventListener('touchmove', draw);
+                canvas.addEventListener('touchend', stopDrawing);
+
+                clearBtn.addEventListener('click', () => {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    result.textContent = "";
+                });
+
+                predictBtn.addEventListener('click', () => {
+                    // Симуляция предсказания для примера (в реальном проекте здесь будет TF.js)
+                    const randomDigit = Math.floor(Math.random() * 10);
+                    const lang = localStorage.getItem('language') || 'en';
+                    result.textContent = (lang === 'uk' ? "Можлива цифра: " : "Predicted Digit: ") + randomDigit;
+                });
+            });
+        </script>
+    </section>
+    {% endif %}
+
     {% if project.code_snippet %}
     <section class="glass-card" style="padding: 40px; margin: 30px 0;">
         <h2 style="color: var(--primary-color); margin-bottom: 20px;" data-i18n="codeImplementation">Code Implementation</h2>
