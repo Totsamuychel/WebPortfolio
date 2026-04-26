@@ -32,10 +32,10 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 84px 20px 40px; /* Adjusted for main-nav height */
+    padding: 84px 20px 40px;
 }
 
-/* BUG 2 Fix: Nav bar layout DESIGN-3 */
+/* Nav bar */
 .main-nav {
   position: fixed;
   top: 0;
@@ -134,7 +134,7 @@ h1 {
     font-weight: 700;
 }
 
-/* BUG 1 Fix: prevent emoji duplication and style icons */
+/* Skills: emoji icon style */
 .skill-category h3 .category-icon {
   font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
   font-size: 1.3em;
@@ -142,6 +142,11 @@ h1 {
   display: inline-block;
   width: 1.5em;
   text-align: center;
+}
+
+/* Lottie placeholder — hidden until animations are added */
+.lottie-skill-icon {
+    display: none;
 }
 
 .glass-card {
@@ -182,7 +187,6 @@ h1 {
     margin-bottom: 15px;
 }
 
-/* Кнопки */
 .project-btn {
     display: inline-flex;
     align-items: center;
@@ -213,7 +217,6 @@ h1 {
     box-shadow: 0 10px 25px rgba(0, 180, 216, 0.4);
 }
 
-/* Скиллы */
 .skill-badge {
     padding: 8px 18px;
     background: rgba(0, 180, 216, 0.15) !important;
@@ -242,7 +245,6 @@ h1 {
     border: 1px solid var(--border-color);
 }
 
-/* Анимации появления */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -254,7 +256,6 @@ h1 {
     transform: translateY(0);
 }
 
-/* Демонстрация (Digit Classifier) */
 #demo-canvas {
     background: #000;
     border: 2px solid var(--primary-color);
@@ -271,7 +272,6 @@ h1 {
     margin: 30px 0;
 }
 
-/* Звезды */
 .stars {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     z-index: -2; pointer-events: none;
@@ -285,13 +285,6 @@ h1 {
 @keyframes twinkle {
     0%, 100% { opacity: 0.3; }
     50% { opacity: 1; }
-}
-
-/* Анимация Lottie */
-.lottie-skill-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 15px;
 }
 
 footer {
@@ -317,7 +310,6 @@ footer {
     to { opacity: 1; transform: scale(1); }
 }
 
-/* Мобильная адаптация */
 @media (max-width: 768px) {
     .main-nav { padding: 0 20px; }
     .nav-links { gap: 10px; }
