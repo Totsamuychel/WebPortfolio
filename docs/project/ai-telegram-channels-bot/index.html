@@ -40,26 +40,26 @@
     <a href="/WebPortfolio/#projects" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">← Back to Portfolio</a>
 
     <section class="project-hero" style="margin: 40px 0; text-align: center;">
-        <h1 class="text-gradient" style="font-size: 3.5em; margin-bottom: 10px;">Delivery App — Service Concept</h1>
-        <p class="subtitle" style="font-size: 1.5em; color: var(--text-secondary);">Концепт приложения для службы доставки. Работа с интерфейсом и логикой заказов.</p>
+        <h1 class="text-gradient" style="font-size: 3.5em; margin-bottom: 10px;">AI Bot for Telegram Channels</h1>
+        <p class="subtitle" style="font-size: 1.5em; color: var(--text-secondary);">Автоматический парсер новостей ИИ с генерацией контента (текст + фото) через Ollama.</p>
         
         <div style="display: flex; justify-content: center; gap: 12px; margin-top: 30px;">
             <span class="skill-badge" style="padding: 8px 20px; background: rgba(0, 180, 216, 0.1); border: 1px solid var(--primary-color); border-radius: 20px; color: var(--primary-color);">Python</span>
             
-            <a href="https://github.com/Totsamuychel/delivery-app" target="_blank" class="project-btn" style="margin: 0; padding: 8px 25px;">View on GitHub →</a>
+            <a href="https://github.com/Totsamuychel/AI-bot-for-Telegram-Channels-" target="_blank" class="project-btn" style="margin: 0; padding: 8px 25px;">View on GitHub →</a>
             
         </div>
     </section>
 
     <section class="glass-card" style="padding: 40px; margin: 30px 0;">
         <h2 style="color: var(--primary-color); margin-bottom: 20px;">About the Project</h2>
-        <p style="font-size: 1.1em; line-height: 1.8;">Проект, демонстрирующий логику работы типичного приложения доставки: выбор товаров, корзина, оформление заказа и расчет времени доставки. Помог освоить принципы построения пользовательских интерфейсов и управления состоянием приложения.</p>
+        <p style="font-size: 1.1em; line-height: 1.8;">Продвинутый бот для ведения Telegram-каналов. Он автоматически собирает актуальные новости об ИИ, сохраняет их в базу данных, а затем использует локальные LLM (через Ollama) или API для генерации уникальных постов с изображениями.</p>
     </section>
 
     
     <section class="glass-card" style="padding: 40px; margin: 30px 0;">
         <h2 style="color: var(--primary-color); margin-bottom: 20px;">How It Works</h2>
-        <p style="font-size: 1.1em; line-height: 1.8;">Реализовано с использованием современных фронтенд-фреймворков. Логика корзины и заказов обрабатывается на стороне клиента, имитируя взаимодействие с реальным бэкендом через моки-данных.</p>
+        <p style="font-size: 1.1em; line-height: 1.8;">Бот парсит новостные источники, фильтрует контент и передает его нейросети для рерайта и создания промпта к визуальной модели. Итоговый пост автоматически публикуется в заданные каналы по расписанию.</p>
     </section>
     
 
@@ -78,25 +78,36 @@
         <ul style="list-style: none; padding: 0;">
             
             <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
-                <span style="color: var(--primary-color);">✔</span> Интуитивный интерфейс выбора товаров
+                <span style="color: var(--primary-color);">✔</span> Автоматический парсинг новостей
             </li>
             
             <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
-                <span style="color: var(--primary-color);">✔</span> Логика управления корзиной
+                <span style="color: var(--primary-color);">✔</span> Генерация уникального текста через Ollama
             </li>
             
             <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
-                <span style="color: var(--primary-color);">✔</span> Адаптивный дизайн
+                <span style="color: var(--primary-color);">✔</span> Создание релевантных изображений
             </li>
             
             <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
-                <span style="color: var(--primary-color);">✔</span> Симуляция оформления заказа
+                <span style="color: var(--primary-color);">✔</span> Автоматический постинг в Telegram
             </li>
             
         </ul>
     </section>
     
 
+    
+    <section class="glass-card" style="padding: 40px; margin: 30px 0;">
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;">Code Implementation</h2>
+        <pre style="background: #050810; padding: 20px; border-radius: 10px; overflow-x: auto; border: 1px solid var(--border-color); color: #48cae4; font-family: 'Consolas', monospace;"><code>import ollama
+from telethon import TelegramClient
+
+def generate_and_post(news_text):
+    post = ollama.generate(model=&#x27;llama3&#x27;, prompt=f&#x27;Rewrite as news: {news_text}&#x27;)
+    # Логика отправки в канал через Telethon
+    client.send_message(&#x27;channel_name&#x27;, post[&#x27;response&#x27;])</code></pre>
+    </section>
     
 </main>
 
