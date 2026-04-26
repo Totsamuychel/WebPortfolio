@@ -1,11 +1,11 @@
 const translations = {
     uk: {
         // Навігація
-        about: "👋 Про мене",
-        skills: "🛠️ Навички",
-        testimonials: "💬 Рекомендації",
-        blog: "📝 Блог",
-        projects: "🚀 Проекти",
+        about: "Про мене",
+        skills: "Навички",
+        testimonials: "Рекомендації",
+        blog: "Блог",
+        projects: "Проекти",
         
         // Заголовок
         title: "Totsamuychel",
@@ -15,29 +15,21 @@ const translations = {
         // Про мене
         aboutMe: "👋 Про мене",
         professionalBio: "🚀 Професійна біографія",
-        bioText1: "Привіт! Мене звати Totsamuychel, і я захоплений розробник у галузі штучного інтелекту та машинного навчання. За останні роки я зосередився на створенні практичних AI рішень, які працюють локально і забезпечують максимальну приватність даних.",
-        bioText2: "Моя спеціалізація включає роботу з локальними AI моделями, комп'ютерним зором та автоматизацією рутинних завдань. Я створюю інструменти, які допомагають людям бути більш продуктивними, використовуючи силу штучного інтелекту без компромісів у безпеці.",
-        bioText3: "Особливо мене надихає можливість зробити AI технології доступними кожному через відкритий вихідний код. Усі мої проекти публічно доступні на GitHub, тому що я вірю в силу спільноти та відкритих інновацій.",
+        bioText1: "Привіт! Мене звати Totsamuychel, і я захоплений розробник у галузі штучного інтелекту та машинного навчання.",
+        bioText2: "Моя спеціалізація включає роботу з локальними AI моделями, комп'ютерним зором та автоматизацією рутинних завдань.",
+        bioText3: "Особливо мене надихає можливість зробити AI технології доступними кожному через відкритий вихідний код.",
         myMotivation: "💡 Моя мотивація",
-        motivationText: "Я вірю, що AI повинен служити людям, а не навпаки. Моя мета — створювати інструменти, які розширюють людські можливості, зберігаючи при цьому контроль і приватність. Кожен проект — це крок до більш розумного та безпечного цифрового майбутнього.",
+        motivationText: "Я вірю, що AI повинен служити людям, а не навпаки.",
         aimlDeveloper: "AI/ML Розробник",
         
         // Навички
         skillsTitle: "🛠️ Навички та технології",
-        LANG: "💻 Мови програмування",
-        FRAMEWORK: "🤖 ML/AI Фреймворки",
-        TOOL: "📚 Інструменти & Бібліотеки",
-        DB: "🗄️ Бази даних",
-        DEVOPS: "⚙️ DevOps/Інструменти",
-        SPEC: "🎯 Спеціалізації",
-        
-        // Рекомендації
-        recommendationsTitle: "💬 Рекомендації",
-        
-        // Блог
-        blogTitle: "📝 Статті та дослідження",
-        minRead: "хв читання",
-        readMore: "Читати →",
+        LANG: "Мови програмування",
+        FRAMEWORK: "ML/AI Фреймворки",
+        TOOL: "Інструменти & Бібліотеки",
+        DB: "Бази даних",
+        DEVOPS: "DevOps/Інструменти",
+        SPEC: "Спеціалізації",
         
         // Проекты
         projectsTitle: "🚀 Мої Проекти",
@@ -50,7 +42,6 @@ const translations = {
         openDetails: "Детальніше",
         viewOnGithub: "GitHub",
 
-        // Названия и описания проектов
         project_jarvis_title: "Jarvis — Локальний AI асистент",
         project_jarvis_desc: "Голосовий асистент з STT, Computer Vision та управлінням ПК. Працює локально.",
         project_sorter_title: "Google Account Sorter",
@@ -90,11 +81,11 @@ const translations = {
     },
     en: {
         // Navigation
-        about: "👋 About",
-        skills: "🛠️ Skills",
-        testimonials: "💬 Testimonials",
-        blog: "📝 Blog",
-        projects: "🚀 Projects",
+        about: "About",
+        skills: "Skills",
+        testimonials: "Testimonials",
+        blog: "Blog",
+        projects: "Projects",
         
         // Header
         title: "Totsamuychel",
@@ -108,17 +99,17 @@ const translations = {
         bioText2: "My specialization includes working with local AI models, computer vision, and automating routine tasks.",
         bioText3: "I'm particularly inspired by the opportunity to make AI technologies accessible to everyone through open source.",
         myMotivation: "💡 My Motivation",
-        motivationText: "I believe that AI should serve people, not the other way around. My goal is to create tools that expand human capabilities while maintaining control and privacy. Every project is a step toward a smarter and safer digital future.",
+        motivationText: "I believe that AI should serve people, not the other way around.",
         aimlDeveloper: "AI/ML Developer",
         
         // Skills
         skillsTitle: "🛠️ Skills and Technologies",
-        LANG: "💻 Programming Languages",
-        FRAMEWORK: "🤖 ML/AI Frameworks",
-        TOOL: "📚 Tools & Libraries",
-        DB: "🗄️ Databases",
-        DEVOPS: "⚙️ DevOps/Tools",
-        SPEC: "🎯 Specializations",
+        LANG: "Programming Languages",
+        FRAMEWORK: "ML/AI Frameworks",
+        TOOL: "Tools & Libraries",
+        DB: "Databases",
+        DEVOPS: "DevOps/Tools",
+        SPEC: "Specializations",
         
         // Testimonials
         recommendationsTitle: "💬 Testimonials",
@@ -139,7 +130,6 @@ const translations = {
         openDetails: "Open Details",
         viewOnGithub: "GitHub",
 
-        // Project Titles and Descriptions
         project_jarvis_title: "Jarvis — Local AI Voice Assistant",
         project_jarvis_desc: "Voice assistant with STT, Computer Vision, and PC control. Runs locally.",
         project_sorter_title: "Google Account Sorter",

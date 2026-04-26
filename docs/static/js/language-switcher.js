@@ -63,15 +63,6 @@ function applyLanguage(lang) {
         }
     });
 
-    const categoryIcons = {
-        "Языки программирования": "💻",
-        "ML/AI Фреймворки": "🤖",
-        "Инструменты & Библиотеки": "📚",
-        "Базы данных": "🗄️",
-        "DevOps/Инструменты": "⚙️",
-        "Специализации": "🎯"
-    };
-
     const keyMap = {
         "Языки программирования": "LANG",
         "ML/AI Фреймворки": "FRAMEWORK",
@@ -84,11 +75,6 @@ function applyLanguage(lang) {
     document.querySelectorAll('.category-name').forEach(el => {
         const cat = el.dataset.category;
         el.textContent = t(keyMap[cat] || cat, lang);
-    });
-
-    document.querySelectorAll('.category-icon').forEach(el => {
-        const cat = el.dataset.categoryIcon;
-        el.textContent = categoryIcons[cat] || "🔧";
     });
 
     // Перевод названий проектов
