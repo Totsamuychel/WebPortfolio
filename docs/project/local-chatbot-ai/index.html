@@ -40,26 +40,26 @@
     <a href="/WebPortfolio/#projects" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">← Back to Portfolio</a>
 
     <section class="project-hero" style="margin: 40px 0; text-align: center;">
-        <h1 class="text-gradient" style="font-size: 3.5em; margin-bottom: 10px;">CopyTool — AI Screen Text Detector</h1>
-        <p class="subtitle" style="font-size: 1.5em; color: var(--text-secondary);">Использование локальной ИИ-модели для детекции текста на экране и копирования.</p>
+        <h1 class="text-gradient" style="font-size: 3.5em; margin-bottom: 10px;">Local Chatbot AI — Private Telegram Assistant</h1>
+        <p class="subtitle" style="font-size: 1.5em; color: var(--text-secondary);">Локальный Telegram бот с поддержкой LLM и Vision моделей на базе RTX 3090.</p>
         
         <div style="display: flex; justify-content: center; gap: 12px; margin-top: 30px;">
             <span class="skill-badge" style="padding: 8px 20px; background: rgba(0, 180, 216, 0.1); border: 1px solid var(--primary-color); border-radius: 20px; color: var(--primary-color);">Python</span>
             
-            <a href="https://github.com/Totsamuychel/CopyTool-App-with-AI" target="_blank" class="project-btn" style="margin: 0; padding: 8px 25px;">View on GitHub →</a>
+            <a href="https://github.com/Totsamuychel/Local_chatbot-AI" target="_blank" class="project-btn" style="margin: 0; padding: 8px 25px;">View on GitHub →</a>
             
         </div>
     </section>
 
     <section class="glass-card" style="padding: 40px; margin: 30px 0;">
         <h2 style="color: var(--primary-color); margin-bottom: 20px;">About the Project</h2>
-        <p style="font-size: 1.1em; line-height: 1.8;">Утилита для мгновенного захвата текста из любой области экрана, включая изображения, видео и PDF-файлы, где текст нельзя выделить стандартными средствами. Работает на базе локальной OCR и LLM для улучшения качества распознавания.</p>
+        <p style="font-size: 1.1em; line-height: 1.8;">Продвинутый чат-бот для Telegram, использующий асинхронные методы обработки запросов. Бот позволяет выбирать между различными локальными моделями (gpt-oss, qwen3) и поддерживает Vision-модели для классификации и описания изображений, присланных в чат.</p>
     </section>
 
     
     <section class="glass-card" style="padding: 40px; margin: 30px 0;">
         <h2 style="color: var(--primary-color); margin-bottom: 20px;">How It Works</h2>
-        <p style="font-size: 1.1em; line-height: 1.8;">При нажатии горячей клавиши программа делает скриншот выделенной области (Pillow + PyAutoGUI), отправляет его в локальную модель для распознавания текста и автоматически очищает результат от мусора перед помещением в буфер обмена.</p>
+        <p style="font-size: 1.1em; line-height: 1.8;">Бот построен на базе aiogram для асинхронного взаимодействия с Telegram API. Обработка запросов происходит на локальном GPU (RTX 3090), что гарантирует высокую скорость и отсутствие задержек облачных сервисов. Используются VL-модели Qwen для понимания изображений.</p>
     </section>
     
 
@@ -67,9 +67,7 @@
         <h2 style="color: var(--primary-color); margin-bottom: 20px;">Technologies Used</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px;">
             
-            <span class="tag" style="font-size: 0.9em; padding: 6px 15px;">Python</span>
-            
-            <span class="tag" style="font-size: 0.9em; padding: 6px 15px;">OpenCV</span>
+                
             
         </div>
     </section>
@@ -80,19 +78,19 @@
         <ul style="list-style: none; padding: 0;">
             
             <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
-                <span style="color: var(--primary-color);">✔</span> Мгновенный захват области экрана
+                <span style="color: var(--primary-color);">✔</span> Асинхронная архитектура (Python/Aiogram)
             </li>
             
             <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
-                <span style="color: var(--primary-color);">✔</span> Локальное распознавание текста (OCR)
+                <span style="color: var(--primary-color);">✔</span> Поддержка VL Qwen моделей (Image-to-Text)
             </li>
             
             <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
-                <span style="color: var(--primary-color);">✔</span> Интеллектуальная очистка через LLM
+                <span style="color: var(--primary-color);">✔</span> Локальный запуск на RTX 3090
             </li>
             
             <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
-                <span style="color: var(--primary-color);">✔</span> Минимальное потребление ресурсов
+                <span style="color: var(--primary-color);">✔</span> Выбор между несколькими LLM моделями
             </li>
             
         </ul>
@@ -102,13 +100,13 @@
     
     <section class="glass-card" style="padding: 40px; margin: 30px 0;">
         <h2 style="color: var(--primary-color); margin-bottom: 20px;">Code Implementation</h2>
-        <pre style="background: #050810; padding: 20px; border-radius: 10px; overflow-x: auto; border: 1px solid var(--border-color); color: #48cae4; font-family: 'Consolas', monospace;"><code>from PIL import ImageGrab
-import pytesseract
+        <pre style="background: #050810; padding: 20px; border-radius: 10px; overflow-x: auto; border: 1px solid var(--border-color); color: #48cae4; font-family: 'Consolas', monospace;"><code>from aiogram import Bot, Dispatcher
+import async_methods
 
-def capture_and_copy():
-    screenshot = ImageGrab.grab()
-    text = pytesseract.image_to_string(screenshot)
-    # Copy to clipboard logic</code></pre>
+async def handle_image(message):
+    # Логика обработки изображения через VL Qwen
+    result = await vision_model.process(message.photo[-1])
+    await message.answer(result)</code></pre>
     </section>
     
 </main>
