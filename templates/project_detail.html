@@ -1,91 +1,68 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="project-page">
-    <a href="{% url 'home' %}#projects" class="back-button">← Назад к проектам</a>
-    
-    <div class="project-hero glass-card">
-        <h2 class="text-gradient">{{ project.title }}</h2>
-        <p style="font-size: 1.2em; color: var(--text-color); margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
-            {{ project.full_description }}
-        </p>
+<main style="max-width: 900px; margin: 40px auto; padding: 0 24px;">
+    <a href="{% url 'home' %}#projects" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">← Back to Portfolio</a>
+
+    <section class="project-hero" style="margin: 40px 0; text-align: center;">
+        <h1 class="text-gradient" style="font-size: 3.5em; margin-bottom: 10px;">{{ project.title }}</h1>
+        <p class="subtitle" style="font-size: 1.5em; color: var(--text-secondary);">{{ project.short_description }}</p>
         
-        <div class="tech-stack" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-            {% for tech in project.technologies.all %}
-            <span class="tech-badge">{{ tech.name }}</span>
-            {% endfor %}
+        <div style="display: flex; justify-content: center; gap: 12px; margin-top: 30px;">
+            <span class="skill-badge" style="padding: 8px 20px; background: rgba(0, 180, 216, 0.1); border: 1px solid var(--primary-color); border-radius: 20px; color: var(--primary-color);">Python</span>
+            {% if project.github_link %}
+            <a href="{{ project.github_link }}" target="_blank" class="project-btn" style="margin: 0; padding: 8px 25px;">View on GitHub →</a>
+            {% endif %}
         </div>
-        
-        {% if project.github_link %}
-        <a href="{{ project.github_link }}" target="_blank" class="github-link">
-            📱 Посмотреть на GitHub
-        </a>
-        {% endif %}
-    </div>
+    </section>
+
+    <section class="glass-card" style="padding: 40px; margin: 30px 0;">
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;">About the Project</h2>
+        <p style="font-size: 1.1em; line-height: 1.8;">{{ project.full_description }}</p>
+    </section>
 
     {% if project.how_it_works %}
-    <div class="how-it-works-section glass-card">
-        <h3 style="margin-bottom: 25px;">🧠 Принцип работы</h3>
-        <div class="how-it-works-content">
-            {{ project.how_it_works|linebreaks }}
-        </div>
-    </div>
+    <section class="glass-card" style="padding: 40px; margin: 30px 0;">
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;">How It Works</h2>
+        <p style="font-size: 1.1em; line-height: 1.8;">{{ project.how_it_works }}</p>
+    </section>
     {% endif %}
 
-    <div class="demo-section glass-card">
-        <h3 style="margin-bottom: 30px;">🚀 Возможности и Метрики</h3>
-        
-        <div class="feature-grid">
-            {% if project.metric_speed %}
-            <div class="feature-card">
-                <h4>⚡ Производительность</h4>
-                <p>{{ project.metric_speed }}</p>
-            </div>
-            {% endif %}
-            
-            {% if project.metric_accuracy %}
-            <div class="feature-card">
-                <h4>🎯 Точность</h4>
-                <p>{{ project.metric_accuracy }}</p>
-            </div>
-            {% endif %}
-
-            {% for feature in project.get_features %}
-            <div class="feature-card">
-                <h4>✅ Особенность</h4>
-                <p>{{ feature }}</p>
-            </div>
+    <section class="glass-card" style="padding: 40px; margin: 30px 0;">
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;">Technologies Used</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px;">
+            {% for tech in project.technologies.all %}
+            <span class="tag" style="font-size: 0.9em; padding: 6px 15px;">{{ tech.name }}</span>
+            {% empty %}
+                {% if project.slug == "jarvis" %}
+                <span class="tag">OpenCV</span> <span class="tag">SpeechRecognition</span> <span class="tag">Ollama</span> <span class="tag">PyAutoGUI</span>
+                {% elif project.slug == "sorter" %}
+                <span class="tag">Google Sheets API</span> <span class="tag">OAuth2</span> <span class="tag">gspread</span>
+                {% elif project.slug == "copytool" %}
+                <span class="tag">Ollama</span> <span class="tag">Pillow</span> <span class="tag">PyAutoGUI</span>
+                {% endif %}
             {% endfor %}
         </div>
-    </div>
+    </section>
 
-    {% if project.code_snippet %}
-    <div class="code-container glass-card">
-        <h3 style="margin-bottom: 20px;">💻 Пример реализации</h3>
-        <div class="code-window">
-            <div class="code-header">
-                <div style="display: flex; gap: 8px;">
-                    <span style="width: 12px; height: 12px; background: #ff5f56; border-radius: 50%;"></span>
-                    <span style="width: 12px; height: 12px; background: #ffbd2e; border-radius: 50%;"></span>
-                    <span style="width: 12px; height: 12px; background: #27c93f; border-radius: 50%;"></span>
-                </div>
-                <span style="color: #888; font-size: 0.9em; font-family: monospace;">main.py</span>
-            </div>
-            <pre class="code-snippet" style="margin: 0; border-radius: 0 0 10px 10px;"><code>{{ project.code_snippet }}</code></pre>
-        </div>
-    </div>
+    {% if project.features_list %}
+    <section class="glass-card" style="padding: 40px; margin: 30px 0;">
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;">Key Features</h2>
+        <ul style="list-style: none; padding: 0;">
+            {% for feature in project.get_features %}
+            <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                <span style="color: var(--primary-color);">✔</span> {{ feature }}
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
     {% endif %}
 
-    <div style="margin-top: 50px; text-align: center; padding-bottom: 60px;">
-        <h3 style="margin-bottom: 20px;">Заинтересовал проект?</h3>
-        <p style="color: var(--text-secondary); margin-bottom: 30px;">
-            Вы можете изучить полный исходный код и документацию в репозитории.
-        </p>
-        {% if project.github_link %}
-        <a href="{{ project.github_link }}" target="_blank" class="github-link">
-            🔗 Открыть репозиторий на GitHub
-        </a>
-        {% endif %}
-    </div>
-</div>
+    {% if project.code_snippet %}
+    <section class="glass-card" style="padding: 40px; margin: 30px 0;">
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;">Code Implementation</h2>
+        <pre style="background: #050810; padding: 20px; border-radius: 10px; overflow-x: auto; border: 1px solid var(--border-color); color: #48cae4; font-family: 'Consolas', monospace;"><code>{{ project.code_snippet }}</code></pre>
+    </section>
+    {% endif %}
+</main>
 {% endblock %}

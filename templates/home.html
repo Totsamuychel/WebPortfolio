@@ -2,125 +2,157 @@
 
 {% block content %}
     <!-- Главная страница -->
-    <div id="home" class="page active">
-        <header>
-            <h1 data-i18n="title">Totsamuychel</h1>
-            <p class="subtitle" data-i18n="subtitle">AI & Machine Learning Developer</p>
-            <div class="social-links">
-                <a href="https://github.com/Totsamuychel" target="_blank" data-i18n="githubProfile">GitHub Profile</a>
-            </div>
-        </header>
+    <header id="home">
+        <h1 data-i18n="title">Totsamuychel</h1>
+        <p class="subtitle" id="typewriter"></p>
+        
+        <!-- DESIGN-4: Hero stats bar -->
+        <div class="stats-bar">
+            <span>3 Projects</span>
+            <span>Open Source</span>
+            <span>Python & AI</span>
+        </div>
 
-        <!-- Развернутая секция "Обо мне" -->
-        <div id="about" class="about-section glass-card" style="margin: 40px 0; padding: 50px;">
-            <h2 class="section-title" style="margin: 0 0 40px 0;" data-i18n="aboutMe">👋 About Me</h2>
+        <div class="social-links" style="margin-top: 40px;">
+            <a href="https://github.com/Totsamuychel" target="_blank" data-i18n="githubProfile">GitHub Profile</a>
+        </div>
+    </header>
+
+    <!-- Развернутая секция "Обо мне" -->
+    <div id="about" class="about-section glass-card" style="margin: 40px 0; padding: 50px;">
+        <h2 class="section-title" style="margin: 0 0 40px 0;" data-i18n="aboutMe">👋 About Me</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; margin-bottom: 40px;">
+            <div>
+                <h3 class="text-gradient" style="font-size: 1.5em; margin-bottom: 20px;" data-i18n="professionalBio">🚀 Professional Biography</h3>
+                <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8; margin-bottom: 20px;" data-i18n="bioText1">Hello! My name is Totsamuychel, and I'm a passionate developer in the field of artificial intelligence and machine learning. In recent years, I've focused on creating practical AI solutions that work locally and ensure maximum data privacy.</p>
+                <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8; margin-bottom: 20px;" data-i18n="bioText2">My specialization includes working with local AI models, computer vision, and automating routine tasks. I create tools that help people be more productive by leveraging the power of artificial intelligence without compromising security.</p>
+                <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8;" data-i18n="bioText3">I'm particularly inspired by the opportunity to make AI technologies accessible to everyone through open source. All my projects are publicly available on GitHub because I believe in the power of community and open innovation.</p>
+            </div>
             
-            <div style="display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; margin-bottom: 40px;">
-                <div>
-                    <h3 class="text-gradient" style="font-size: 1.5em; margin-bottom: 20px;" data-i18n="professionalBio">🚀 Professional Biography</h3>
-                    <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8; margin-bottom: 20px;" data-i18n="bioText1">Hello! My name is Totsamuychel, and I'm a passionate developer in the field of artificial intelligence and machine learning. In recent years, I've focused on creating practical AI solutions that work locally and ensure maximum data privacy.</p>
-                    <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8; margin-bottom: 20px;" data-i18n="bioText2">My specialization includes working with local AI models, computer vision, and automating routine tasks. I create tools that help people be more productive by leveraging the power of artificial intelligence without compromising security.</p>
-                    <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8;" data-i18n="bioText3">I'm particularly inspired by the opportunity to make AI technologies accessible to everyone through open source. All my projects are publicly available on GitHub because I believe in the power of community and open innovation.</p>
+            <div style="text-align: center;">
+                <div class="avatar-container" style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 4em; position: relative;">
+                    👨‍💻
                 </div>
+                <!-- BUG-1: Удален лишний h4 Totsamuychel -->
+                <p style="color: var(--text-secondary); margin-bottom: 20px;" data-i18n="aimlDeveloper">AI/ML Developer</p>
                 
-                <div style="text-align: center;">
-                    <div class="avatar-container" style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 4em; position: relative;">
-                        👨‍💻
-                    </div>
-                    <h4 style="color: #fff; margin-bottom: 15px;">Totsamuychel</h4>
-                    <p style="color: var(--text-secondary); margin-bottom: 20px;" data-i18n="aimlDeveloper">AI/ML Developer</p>
-                    
-                    <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <a href="https://github.com/Totsamuychel" target="_blank" class="social-btn">
-                            <span>📱</span> GitHub
-                        </a>
-                        <a href="https://linkedin.com/in/totsamuychel" target="_blank" class="social-btn">
-                            <span>💼</span> LinkedIn
-                        </a>
-                        <a href="https://t.me/totsamuychel" target="_blank" class="social-btn">
-                            <span>✈️</span> Telegram
-                        </a>
-                    </div>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <a href="https://github.com/Totsamuychel" target="_blank" class="social-btn">
+                        <span>📱</span> GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/totsamuychel" target="_blank" class="social-btn">
+                        <span>💼</span> LinkedIn
+                    </a>
+                    <a href="https://t.me/totsamuychel" target="_blank" class="social-btn">
+                        <span>✈️</span> Telegram
+                    </a>
                 </div>
             </div>
-
-            <div style="margin-top: 40px;">
-                <h3 class="text-gradient" style="font-size: 1.5em; margin-bottom: 20px; text-align: center;" data-i18n="myMotivation">💡 My Motivation</h3>
-                <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8; text-align: center; max-width: 800px; margin: 0 auto;" data-i18n="motivationText">I believe that AI should serve people, not the other way around. My goal is to create tools that expand human capabilities while maintaining control and privacy. Every project is a step toward a smarter and safer digital future.</p>
-            </div>
         </div>
+    </div>
 
-        <!-- Раздел навыков -->
-        <div id="skills" class="skills-section" style="margin: 60px 0;">
-            <h2 class="section-title" data-i18n="skillsTitle">🛠️ Skills and Technologies</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                {% for category, skills in skills_dict.items %}
-                <div class="skill-category glass-card">
-                    <h3 class="text-gradient" style="font-size: 1.3em; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
-                        <span>
-                            {% if category == "Языки программирования" %}💻
-                            {% elif category == "ML/AI Фреймворки" %}🤖
-                            {% elif category == "Инструменты & Библиотеки" %}📚
-                            {% elif category == "Базы данных" %}🗄️
-                            {% elif category == "DevOps/Инструменты" %}⚙️
-                            {% elif category == "Специализации" %}🎯
-                            {% else %}🔧{% endif %}
-                        </span> 
-                        <span class="category-name" data-category="{{ category }}">{{ category }}</span>
-                    </h3>
-                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-                        {% for skill in skills %}
-                        <span class="skill-badge" style="padding: 8px 16px; background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; border-radius: 20px; color: #3498db; font-size: 0.9em;">{{ skill.name }}</span>
-                        {% endfor %}
+    <!-- Раздел навыков -->
+    <div id="skills" class="skills-section" style="margin: 60px 0;">
+        <h2 class="section-title" data-i18n="skillsTitle">🛠️ Skills and Technologies</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            {% for category, skills in skills_dict.items %}
+            <div class="skill-category glass-card" style="padding: 30px;">
+                <h3 class="text-gradient" style="font-size: 1.3em; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <span>
+                        {% if category == "Языки программирования" %}💻
+                        {% elif category == "ML/AI Фреймворки" %}🤖
+                        {% elif category == "Инструменты & Библиотеки" %}📚
+                        {% elif category == "Базы данных" %}🗄️
+                        {% elif category == "DevOps/Инструменты" %}⚙️
+                        {% elif category == "Специализации" %}🎯
+                        {% else %}🔧{% endif %}
+                    </span> 
+                    <span class="category-name" data-category="{{ category }}">{{ category }}</span>
+                </h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    {% for skill in skills %}
+                    <span class="skill-badge" style="padding: 8px 16px; background: rgba(0, 180, 216, 0.1); border: 1px solid var(--primary-color); border-radius: 20px; color: var(--primary-color); font-size: 0.9em;">{{ skill.name }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Раздел рекомендаций -->
+    <div id="testimonials" class="testimonials-section" style="margin: 60px 0;">
+        <h2 class="section-title" data-i18n="recommendationsTitle">💬 Testimonials</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 40px;">
+            {% for testimonial in testimonials %}
+            <div class="testimonial-card glass-card" style="padding: 30px; position: relative;">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                    <!-- BUG-2: Замена эмодзи на SVG-инициалы -->
+                    <div class="avatar-initials">
+                        {{ testimonial.get_initials }}
+                    </div>
+                    <div>
+                        <h4 style="color: #fff; margin: 0;">{{ testimonial.author }}</h4>
+                        <p style="color: var(--text-secondary); margin: 0; font-size: 0.9em;">{{ testimonial.role }}</p>
                     </div>
                 </div>
-                {% endfor %}
+                <p style="color: var(--text-color); font-style: italic; line-height: 1.6;">
+                    "{{ testimonial.text }}"
+                </p>
+                <div style="position: absolute; top: 20px; right: 20px; color: var(--primary-color); font-size: 2em; opacity: 0.3;">❝</div>
             </div>
+            {% endfor %}
         </div>
+    </div>
 
-        <!-- Раздел рекомендаций -->
-        <div id="testimonials" class="testimonials-section" style="margin: 60px 0;">
-            <h2 class="section-title" data-i18n="recommendationsTitle">💬 Testimonials</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 40px;">
-                {% for testimonial in testimonials %}
-                <div class="testimonial-card glass-card">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; font-size: 1.5em;">
-                            {{ testimonial.emoji }}
-                        </div>
-                        <div>
-                            <h4 style="color: #fff; margin: 0;">{{ testimonial.author }}</h4>
-                            <p style="color: var(--text-secondary); margin: 0; font-size: 0.9em;">{{ testimonial.role }}</p>
-                        </div>
-                    </div>
-                    <p style="color: var(--text-color); font-style: italic; line-height: 1.6;">
-                        "{{ testimonial.text }}"
-                    </p>
-                    <div style="position: absolute; top: 20px; right: 20px; color: var(--primary-color); font-size: 2em; opacity: 0.3;">❝</div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-
-        <h2 id="projects" class="section-title" data-i18n="projectsTitle">🚀 My Projects</h2>
+    <!-- Раздел проектов -->
+    <div id="projects" style="margin-top: 80px;">
+        <h2 class="section-title" data-i18n="projectsTitle">🚀 My Projects</h2>
         <p style="text-align: center; color: var(--text-secondary); font-size: 1.1em; margin-bottom: 40px;">
             <span data-i18n="totalProjects">Total projects:</span> <span class="project-count">{{ projects.count }}</span> | <span data-i18n="openSource">All with open source code 🚀</span>
         </p>
         
         <div class="projects-grid">
             {% for project in projects %}
-            <div class="project-card" onclick="location.href='{% url 'project_detail' project.slug %}'">
-                <div class="project-header">
-                    <h3 class="project-title">{{ project.title }}</h3>
-                    <span class="project-language">{{ project.technologies.first.name|default:"Python" }}</span>
+            <div class="project-card">
+                <div>
+                    <h3 class="project-title" style="font-size: 1.5em; color: var(--primary-color); margin-bottom: 10px;">{{ project.title }}</h3>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        {% if project.slug == "jarvis" %}
+                        <span class="tag">AI</span> <span class="tag">OpenCV</span> <span class="tag">Ollama</span>
+                        {% elif project.slug == "sorter" %}
+                        <span class="tag">API</span> <span class="tag">Automation</span> <span class="tag">Google Sheets</span>
+                        {% elif project.slug == "copytool" %}
+                        <span class="tag">OCR</span> <span class="tag">ML</span> <span class="tag">Pillow</span>
+                        {% endif %}
+                    </div>
+                    <p class="project-description" style="color: var(--text-secondary); margin-bottom: 20px;">
+                        {{ project.short_description }}
+                    </p>
                 </div>
-                <p class="project-description">
-                    {{ project.short_description }}
-                </p>
+                <div style="display: flex; gap: 10px;">
+                    <a href="{% url 'project_detail' project.slug %}" class="project-btn" style="flex: 1;">Open Details</a>
+                    <a href="{{ project.github_link }}" target="_blank" class="project-btn" style="background: var(--bg-card); border: 1px solid var(--primary-color); color: var(--primary-color); flex: 0.5;">GitHub</a>
+                </div>
             </div>
             {% endfor %}
         </div>
     </div>
+
+    <!-- Typewriter Script -->
+    <script>
+        const text = "AI & Machine Learning Developer";
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', typeWriter);
+    </script>
 {% endblock %}

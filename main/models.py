@@ -45,6 +45,14 @@ class Testimonial(models.Model):
     text = models.TextField()
     emoji = models.CharField(max_length=10, default="👨‍💻")
 
+    def get_initials(self):
+        if not self.author:
+            return "???"
+        parts = self.author.split()
+        if len(parts) >= 2:
+            return f"{parts[0][0]}{parts[1][0]}".upper()
+        return self.author[0].upper()
+
     def __str__(self):
         return self.author
 
