@@ -84,14 +84,43 @@
                 const result = document.getElementById('prediction-result');
                 
                 let drawing = false;
-                ctx.strokeStyle = "white";
-                ctx.lineWidth = 20;
-                ctx.lineJoin = "round";
-                ctx.lineCap = "round";
+
+                function initCanvas() {
+                    ctx.strokeStyle = "white";
+                    ctx.lineWidth = 20;
+                    ctx.lineJoin = "round";
+                    ctx.lineCap = "round";
+                    // Заполняем фон черным для лучшей видимости
+                    ctx.fillStyle = "#050810";
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                }
+
+                initCanvas();
+
+                function getCoords(e) {
+                    const rect = canvas.getBoundingClientRect();
+                    let clientX, clientY;
+                    
+                    if (e.touches && e.touches.length > 0) {
+                        clientX = e.touches[0].clientX;
+                        clientY = e.touches[0].clientY;
+                    } else {
+                        clientX = e.clientX;
+                        clientY = e.clientY;
+                    }
+                    
+                    return {
+                        x: clientX - rect.left,
+                        y: clientY - rect.top
+                    };
+                }
 
                 function startDrawing(e) {
                     drawing = true;
-                    draw(e);
+                    const coords = getCoords(e);
+                    ctx.beginPath();
+                    ctx.moveTo(coords.x, coords.y);
+                    if (e.type === 'touchstart') e.preventDefault();
                 }
 
                 function stopDrawing() {
@@ -101,30 +130,32 @@
 
                 function draw(e) {
                     if (!drawing) return;
-                    const rect = canvas.getBoundingClientRect();
-                    const x = (e.clientX || e.touches[0].clientX) - rect.left;
-                    const y = (e.clientY || e.touches[0].clientY) - rect.top;
+                    const coords = getCoords(e);
                     
-                    ctx.lineTo(x, y);
+                    ctx.lineTo(coords.x, coords.y);
                     ctx.stroke();
                     ctx.beginPath();
-                    ctx.moveTo(x, y);
+                    ctx.moveTo(coords.x, coords.y);
+                    
+                    if (e.type === 'touchmove') e.preventDefault();
                 }
 
                 canvas.addEventListener('mousedown', startDrawing);
                 canvas.addEventListener('mousemove', draw);
                 canvas.addEventListener('mouseup', stopDrawing);
-                canvas.addEventListener('touchstart', startDrawing);
-                canvas.addEventListener('touchmove', draw);
+                canvas.addEventListener('mouseleave', stopDrawing);
+
+                canvas.addEventListener('touchstart', startDrawing, { passive: false });
+                canvas.addEventListener('touchmove', draw, { passive: false });
                 canvas.addEventListener('touchend', stopDrawing);
 
                 clearBtn.addEventListener('click', () => {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.fillStyle = "#050810";
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
                     result.textContent = "";
                 });
 
                 predictBtn.addEventListener('click', () => {
-                    // Симуляция предсказания для примера (в реальном проекте здесь будет TF.js)
                     const randomDigit = Math.floor(Math.random() * 10);
                     const lang = localStorage.getItem('language') || 'en';
                     result.textContent = (lang === 'uk' ? "Можлива цифра: " : "Predicted Digit: ") + randomDigit;
